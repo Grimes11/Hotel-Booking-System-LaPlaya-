@@ -1,0 +1,600 @@
+/* ==========================================
+   Baby Blue Theme – Enhanced Aesthetics & Image Expansion
+   ========================================== */
+
+
+/* ===== CSS Variables for Consistency & Baby Blue Theme ===== */
+:root {
+  /* Font & Base */
+  --font-base: 'Poppins', sans-serif;
+  --line-height: 1.6;
+  
+  /* Colors – Baby Blue Palette */
+  --color-primary: #89CFF0;        /* Baby Blue */
+  --color-primary-dark: #4F9CC0;     /* Darker Baby Blue */
+  --color-secondary: #B3E5FC;        /* Lighter Accent */
+  --color-background: #F0F8FF;       /* Alice Blue */
+  --color-text: #444;
+  --color-heading: #333;
+  --color-link-hover: #89CFF0;
+  --color-card-bg: #fff;
+  --color-header-gradient-start: #A2D5F2;
+  --color-header-gradient-end: #89CFF0;
+  
+  /* Borders & Shadows */
+  --border-radius-base: 8px;
+  --border-radius-card: 25px;
+  --box-shadow-base: 0 4px 10px rgba(0, 0, 0, 0.1);
+  --box-shadow-hover: 0 8px 18px rgba(0, 0, 0, 0.2);
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease-in-out;
+  --transition-base: 0.3s ease-in-out;
+}
+
+/* ===== Global Resets & Base Styles ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-base);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  line-height: var(--line-height);
+}
+
+/* Utility Elements */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-link-hover);
+}
+
+/* ===== Typography ===== */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  margin-bottom: 0.5em;
+  line-height: 1.2;
+}
+
+p {
+  margin-bottom: 1em;
+}
+
+/* ===== Buttons – Enhanced Aesthetics ===== */
+button,
+.btn {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  color: #fff;
+  padding: 0.75em 1.5em;
+  border: none;
+  border-radius: var(--border-radius-base);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform var(--transition-fast), background var(--transition-fast), box-shadow var(--transition-fast);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+button:hover,
+.btn:hover {
+  background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== Form Elements ===== */
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.75em;
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius-base);
+  font-size: 1rem;
+  margin-bottom: 1em;
+  transition: border-color var(--transition-fast);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+/* ===== Header / Navbar ===== */
+header {
+  background: linear-gradient(135deg, var(--color-header-gradient-start), var(--color-header-gradient-end));
+  padding: 1em 0;
+  box-shadow: var(--box-shadow-base);
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+nav {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5em;
+}
+
+nav ul li a {
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 0.5em 1em;
+  border-radius: 12px;
+  transition: background var(--transition-base), color var(--transition-base);
+  color: var(--color-text);
+}
+
+nav ul li a:hover {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+/* ===== Page Title ===== */
+.page-title {
+  text-align: center;
+  padding: 3em 1em;
+  background: linear-gradient(135deg, var(--color-header-gradient-start), var(--color-header-gradient-end));
+  color: var(--color-heading);
+  border-radius: 15px;
+  margin: 2em auto;
+  width: 80%;
+  box-shadow: var(--box-shadow-base);
+}
+
+.page-title h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.5em;
+}
+
+.page-title p {
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin-top: 0.5em;
+}
+
+/* ===== Hero Section ===== */
+.hero {
+  width: 90%;
+  max-width: 1200px;
+  margin: 2em auto;
+  text-align: center;
+  padding: 4em 1em;
+  border-radius: 14px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  background: url("/static/images/homepage.jpg") no-repeat center center;
+  background-size: cover;
+  color: #fff;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.hero p {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* ===== Search Section ===== */
+.search-section {
+  width: 90%;
+  max-width: 1200px;
+  margin: 2em auto;
+  text-align: center;
+}
+
+.search-section h2 {
+  margin-bottom: 1em;
+}
+
+.search-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  justify-content: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.search-form > div {
+  flex: 1 1 150px;
+  min-width: 150px;
+}
+
+.search-form button {
+  flex: 1 1 100px;
+  min-width: 100px;
+}
+
+/* ===== Features Section ===== */
+.features {
+  width: 90%;
+  max-width: 1200px;
+  margin: 2em auto;
+  text-align: center;
+}
+
+.feature-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2em;
+  margin-top: 2em;
+}
+
+/* ===== Rooms List Section ===== */
+.rooms-list {
+  width: 90%;
+  max-width: 1300px;
+  margin: 3em auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2.5em;
+}
+
+/* ===== Individual Room Card ===== */
+.room {
+  background-color: var(--color-card-bg);
+  border-radius: var(--border-radius-card);
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-bottom: 2em;
+}
+
+.room:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--box-shadow-hover);
+}
+
+/* Room Images with Hover & Click Expand */
+.room img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: var(--border-radius-card) var(--border-radius-card) 0 0;
+  transition: transform var(--transition-base), filter var(--transition-base);
+  cursor: pointer;
+}
+
+.room img:hover {
+  transform: scale(1.03);
+  filter: brightness(90%);
+}
+
+/* ===== Room Information ===== */
+.room-info {
+  padding: 2em;
+}
+
+.room-info h2 {
+  font-size: 2rem;
+  color: var(--color-primary);
+  margin-bottom: 0.5em;
+  font-weight: 600;
+}
+
+.room-info p {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 1em;
+  line-height: var(--line-height);
+}
+
+/* ===== Price Styling ===== */
+.price {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--color-text);
+  background-color: var(--color-header-gradient-start);
+  padding: 0.7em 1.5em;
+  border-radius: 12px;
+  display: inline-block;
+}
+
+/* ===== Suite Gallery ===== */
+.suite-gallery {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5em;
+  background: var(--color-header-gradient-end);
+  border-radius: 20px;
+}
+
+.suite-gallery img {
+  width: 32%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 15px;
+  transition: transform var(--transition-base);
+}
+
+.suite-gallery img:hover {
+  transform: scale(1.07);
+}
+
+/* ===== Booking Section ===== */
+.booking-section {
+  width: 90%;
+  max-width: 800px;
+  margin: 2em auto;
+  text-align: left;
+}
+
+.booking-section h1 {
+  text-align: center;
+  margin-bottom: 0.5em;
+}
+
+.booking-form {
+  background-color: #f9f9f9;
+  padding: 2em;
+  border-radius: var(--border-radius-base);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.booking-form .form-row {
+  margin-bottom: 1em;
+}
+
+.booking-form h2 {
+  margin: 1.5em 0 0.5em 0;
+}
+
+/* ===== Confirmation Section ===== */
+.confirmation-section {
+  width: 90%;
+  max-width: 800px;
+  margin: 2em auto;
+  text-align: center;
+}
+
+.confirmation-details {
+  background-color: #f9f9f9;
+  padding: 2em;
+  border-radius: var(--border-radius-base);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  text-align: left;
+  margin-top: 2em;
+}
+
+.confirmation-details h2 {
+  margin-bottom: 1em;
+}
+
+.confirmation-details ul {
+  list-style: none;
+  margin-bottom: 1em;
+}
+
+.confirmation-details ul li {
+  margin-bottom: 0.5em;
+}
+
+.confirmation-details p {
+  margin-bottom: 1em;
+}
+
+/* ===== Footer ===== */
+footer {
+  background-color: #f9f9f9;
+  border-top: 1px solid #eee;
+  padding: 2em 0;
+  margin-top: 2em;
+}
+
+.footer-content {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/* ===== Admin Elements ===== */
+.admin-btn {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+  border-radius: var(--border-radius-base);
+  padding: 0.5em 1em;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.admin-btn:hover {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+.admin-alert {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #ff4444;
+  color: #fff;
+  padding: 1em;
+  border-radius: var(--border-radius-base);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+}
+
+.admin-dashboard {
+  width: 90%;
+  max-width: 1200px;
+  margin: 2em auto;
+  text-align: left;
+}
+
+.admin-dashboard h1 {
+  text-align: center;
+  margin-bottom: 0.5em;
+}
+
+.bookings-table {
+  margin-top: 2em;
+  overflow-x: auto;
+}
+
+.bookings-table table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+.bookings-table th,
+.bookings-table td {
+  border: 1px solid #eee;
+  padding: 1em;
+  text-align: left;
+}
+
+.bookings-table th {
+  background-color: #f9f9f9;
+}
+
+.btn-view {
+  background-color: var(--color-primary);
+  margin-right: 0.5em;
+}
+
+.btn-edit {
+  background-color: #ffa500;
+  margin-right: 0.5em;
+}
+
+.btn-delete {
+  background-color: #ff4444;
+}
+
+/* ===== Modal Overlay for Image Expansion ===== */
+.room-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;  /* Hidden by default */
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  padding: 1em;
+}
+
+.room-modal.active {
+  display: flex;
+}
+
+.room-modal img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+  .hero {
+    padding: 3em 1em;
+  }
+  
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  nav ul {
+    flex-direction: column;
+    gap: 1em;
+    text-align: center;
+  }
+  
+  nav ul li a {
+    padding: 0.75em;
+    display: block;
+  }
+  
+  .search-form {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .rooms-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .room img {
+    height: 300px;
+  }
+  
+  .room-info {
+    text-align: center;
+    padding: 2em;
+  }
+  
+  .suite-gallery {
+    flex-direction: column;
+  }
+  
+  .suite-gallery img {
+    width: 100%;
+    height: 150px;
+  }
+  
+  .page-title {
+    width: 90%;
+    padding: 2em 1em;
+  }
+  
+  .page-title h1 {
+    font-size: 2.5rem;
+  }
+  
+  .page-title p {
+    font-size: 1.1rem;
+  }
+}

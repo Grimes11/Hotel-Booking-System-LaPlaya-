@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>View Booking</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+  <h1>View Booking</h1>
+  {% if booking %}
+    <p><strong>Booking ID:</strong> {{ booking._id }}</p>
+    <p><strong>Full Name:</strong> {{ booking.fullname }}</p>
+    <p><strong>Room:</strong> {{ booking.room }}</p>
+    <p><strong>Check-In:</strong> {{ booking.checkin }}</p>
+    <p><strong>Check-Out:</strong> {{ booking.checkout }}</p>
+    <p><strong>Guests:</strong> {{ booking.guests }}</p>
+    <p><strong>Phone:</strong> {{ booking.phone }}</p>
+    <p><strong>Email:</strong> {{ booking.email }}</p>
+    <p><strong>Requests:</strong> {{ booking.requests }}</p>
+  {% else %}
+    <p>Booking not found.</p>
+  {% endif %}
+  <a href="/admin" class="btn">Back to Admin</a>
+</body>
+</html>

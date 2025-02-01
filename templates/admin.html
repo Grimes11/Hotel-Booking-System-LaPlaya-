@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>La Playa Hotel - Admin Dashboard</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+
+  <!-- Header / Navbar -->
+  <header>
+    <nav>
+      <a href="/" class="logo">La Playa</a>
+      <ul>
+        <li><a href="/rooms">Rooms</a></li>
+        <li><a href="/booking">Book Now</a></li>
+        <li><a href="/">Home</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Admin Dashboard Section -->
+  <section class="admin-dashboard">
+    <h1>Admin Dashboard</h1>
+    <p>Manage hotel bookings and system settings.</p>
+
+    <div class="bookings-table">
+      <h2>All Bookings</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Booking ID</th>
+            <th>Name</th>
+            <th>Room</th>
+            <th>Check-In</th>
+            <th>Check-Out</th>
+            <th>Guests</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for booking in bookings %}
+          <tr>
+            <td>{{ booking._id }}</td>
+            <td>{{ booking.fullname }}</td>
+            <td>{{ booking.room }}</td>
+            <td>{{ booking.checkin }}</td>
+            <td>{{ booking.checkout }}</td>
+            <td>{{ booking.guests }}</td>
+            <td>
+              <!-- View Link -->
+              <a 
+                href="{{ url_for('admin_view_booking', booking_id=booking._id|string) }}" 
+                class="btn btn-view"
+              >
+                View
+              </a>
+
+              <!-- Edit Link -->
+              <a 
+                href="{{ url_for('admin_edit_booking', booking_id=booking._id|string) }}" 
+                class="btn btn-edit"
+              >
+                Edit
+              </a>
+
+              <!-- Delete (POST) -->
+              <form 
+                action="{{ url_for('admin_delete_booking', booking_id=booking._id|string) }}" 
+                method="POST" 
+                style="display: inline;"
+              >
+                <button 
+                  type="submit" 
+                  class="btn btn-delete" 
+                  onclick="return confirm('Are you sure you want to delete this booking?');"
+                >
+                  Delete
+                </button>
+              </form>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <p>123 Ocean Avenue, Trou D'Eau Douce, Mauritius &nbsp;|&nbsp; (555) 123-4567</p>
+      <p>&copy; 2025 La Playa. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

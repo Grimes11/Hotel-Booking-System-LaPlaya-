@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Booking</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+  <h1>Edit Booking</h1>
+  {% if booking %}
+  <form method="POST">
+    <label for="fullname">Full Name</label>
+    <input 
+      type="text" 
+      name="fullname" 
+      id="fullname" 
+      value="{{ booking.fullname }}"
+      required
+    />
+
+    <label for="room">Room</label>
+    <select name="room" id="room">
+      <option value="standard" {% if booking.room == "standard" %}selected{% endif %}>Standard</option>
+      <option value="oceanview" {% if booking.room == "oceanview" %}selected{% endif %}>Ocean View</option>
+      <option value="gardenview" {% if booking.room == "gardenview" %}selected{% endif %}>Garden View</option>
+      <option value="suite" {% if booking.room == "suite" %}selected{% endif %}>Luxury Suite</option>
+    </select>
+
+    <label for="checkin">Check-In</label>
+    <input 
+      type="date" 
+      name="checkin" 
+      id="checkin" 
+      value="{{ booking.checkin|safe }}"
+      required
+    />
+
+    <label for="checkout">Check-Out</label>
+    <input 
+      type="date" 
+      name="checkout" 
+      id="checkout" 
+      value="{{ booking.checkout|safe }}"
+      required
+    />
+
+    <label for="guests">Number of Guests</label>
+    <input 
+      type="number" 
+      name="guests" 
+      id="guests" 
+      min="1" 
+      max="10"
+      value="{{ booking.guests }}"
+      required
+    />
+
+    <label for="phone">Phone</label>
+    <input
+      type="tel"
+      name="phone"
+      id="phone"
+      value="{{ booking.phone }}"
+      required
+    />
+
+    <label for="email">Email</label>
+    <input
+      type="email"
+      name="email"
+      id="email"
+      value="{{ booking.email }}"
+      required
+    />
+
+    <label for="requests">Special Requests</label>
+    <textarea 
+      name="requests" 
+      id="requests" 
+      rows="3"
+    >{{ booking.requests }}</textarea>
+
+    <button type="submit" class="btn">Save Changes</button>
+    <a href="/admin" class="btn">Cancel</a>
+  </form>
+  {% else %}
+    <p>Booking not found.</p>
+  {% endif %}
+</body>
+</html>

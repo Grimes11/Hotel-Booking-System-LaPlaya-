@@ -1,0 +1,54 @@
+<!-- confirmation.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>La Playa Hotel - Confirmation</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/" class="logo">La Playa</a>
+      <ul>
+        <li><a href="/rooms">Rooms</a></li>
+        <li><a href="/booking">Book Now</a></li>
+        <li><a href="/">Home</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="confirmation-section">
+    <h1>Booking Confirmed</h1>
+    <p>Thank you for choosing La Playa Hotel!</p>
+
+    <div class="confirmation-details">
+      <h2>Your Reservation Details</h2>
+      {% if booking %}
+      <ul>
+        <li><strong>Booking ID:</strong> {{ booking._id }}</li>
+        <li><strong>Room Type:</strong> {{ booking.room }}</li>
+        <li><strong>Check-In:</strong> {{ booking.checkin }}</li>
+        <li><strong>Check-Out:</strong> {{ booking.checkout }}</li>
+        <li><strong>Number of Guests:</strong> {{ booking.guests }}</li>
+        <li><strong>Full Name:</strong> {{ booking.fullname }}</li>
+        <li><strong>Email:</strong> {{ booking.email }}</li>
+        <li><strong>Phone Number:</strong> {{ booking.phone }}</li>
+        <li><strong>Special Requests:</strong> {{ booking.requests }}</li>
+      </ul>
+      <p>A confirmation email has been sent to <em>{{ booking.email }}</em>.</p>
+      {% else %}
+      <p>No booking details found.</p>
+      {% endif %}
+    </div>
+
+    <a href="/" class="btn">Return to Home</a>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <p>123 Ocean Avenue, Miami, FL &nbsp;|&nbsp; (555) 123-4567</p>
+    </div>
+  </footer>
+</body>
+</html>
